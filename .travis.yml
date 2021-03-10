@@ -5,6 +5,9 @@ language: php
 
 php:
   - 7.3
+
+service:
+  - mysql
   
 before_script:
   - composer self-update
