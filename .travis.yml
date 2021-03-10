@@ -15,6 +15,7 @@ before_install:
 before_script:
   - composer self-update
   - composer install --no-interaction
+  - cp .env.travis .env
 
 script:
   - vendor/bin/phpunit --coverage-text
