@@ -16,6 +16,11 @@ before_script:
   - cp .env.travis .env
   - pear install pear/PHP_CodeSniffer
   - phpenv rehash
-  
+
+notifications:
+  email:
+    on_success: never
+    
 script:
   - vendor/bin/phpunit --coverage-text
+  - vendor/bin/phpcs -n
