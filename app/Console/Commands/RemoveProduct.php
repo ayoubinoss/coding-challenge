@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Models\Product;
 
 class RemoveProduct extends Command
 {
@@ -11,14 +12,15 @@ class RemoveProduct extends Command
      *
      * @var string
      */
-    protected $signature = 'products:remove';
+    protected $signature = 'products:remove 
+                            {product : the product ID}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Remove a product from the database';
 
     /**
      * Create a new command instance.
@@ -37,6 +39,6 @@ class RemoveProduct extends Command
      */
     public function handle()
     {
-        return 0;
+        Product::destroy($this->argument('product'));
     }
 }

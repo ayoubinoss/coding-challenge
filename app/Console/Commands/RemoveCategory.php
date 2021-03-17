@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Models\Category;
 
 class RemoveCategory extends Command
 {
@@ -11,7 +12,8 @@ class RemoveCategory extends Command
      *
      * @var string
      */
-    protected $signature = 'category:remove';
+    protected $signature = 'categories:remove
+                            {category : The category ID}';
 
     /**
      * The console command description.
@@ -37,6 +39,6 @@ class RemoveCategory extends Command
      */
     public function handle()
     {
-        return 0;
+        Category::destroy($this->argument('category'));
     }
 }
