@@ -2,17 +2,24 @@
 
 namespace App\Console\Commands;
 
+use App\Repository\CategoryRepositoryInterface;
+use App\Repository\Eloquent\CategoryRepository;
 use Illuminate\Console\Command;
 use App\Models\Category;
 
 class AddCategory extends Command
 {
     /**
+     * @var CategoryRepositoryInterface
+     */
+    private $categoryRepository;
+
+    /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'categories:add 
+    protected $signature = 'categories:add
                             {name : the name of the category}
                             {parent_category? : the ID of the parent category}';
 
@@ -26,11 +33,12 @@ class AddCategory extends Command
     /**
      * Create a new command instance.
      *
-     * @return void
+     * @param CategoryRepositoryInterface $categoryRepository
      */
-    public function __construct()
+    public function __construct(CategoryRepositoryInterface $categoryRepository)
     {
         parent::__construct();
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
