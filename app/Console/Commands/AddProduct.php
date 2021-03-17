@@ -51,16 +51,8 @@ class AddProduct extends Command
         $product->image = $arguments['image'];
         $product->save();
         //insert into the intermediate table ( product_category )
-        try 
-        {
-            foreach($arguments['category'] as $category)
-            {
-                $product->categories()->attach(Category::$category);
-            }
-        } catch(QueryException $e)
-        {
-            
+        foreach ($arguments['category'] as $category) {
+            $product->categories()->attach(Category::$category);
         }
-        
     }
 }

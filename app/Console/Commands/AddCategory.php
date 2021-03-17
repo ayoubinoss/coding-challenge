@@ -42,8 +42,7 @@ class AddCategory extends Command
     {
         $category = new Category;
         $category->name = $this->argument('name');
-        if($this->argument('parent_category') !== null)
-        {
+        if ($this->argument('parent_category') !== null) {
             $category->parent_category_id = $this->argument('parent_category');
         }
         $category->save();
