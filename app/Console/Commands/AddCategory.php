@@ -10,11 +10,6 @@ use App\Models\Category;
 class AddCategory extends Command
 {
     /**
-     * @var CategoryRepositoryInterface
-     */
-    private $categoryRepository;
-
-    /**
      * The name and signature of the console command.
      *
      * @var string
@@ -38,7 +33,6 @@ class AddCategory extends Command
     public function __construct(CategoryRepositoryInterface $categoryRepository)
     {
         parent::__construct();
-        $this->categoryRepository = $categoryRepository;
     }
 
     /**
