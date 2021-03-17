@@ -2,8 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\Repository\CategoryRepositoryInterface;
-use App\Repository\Eloquent\CategoryRepository;
 use Illuminate\Console\Command;
 use App\Models\Category;
 
@@ -28,9 +26,8 @@ class AddCategory extends Command
     /**
      * Create a new command instance.
      *
-     * @param CategoryRepositoryInterface $categoryRepository
      */
-    public function __construct(CategoryRepositoryInterface $categoryRepository)
+    public function __construct()
     {
         parent::__construct();
     }
