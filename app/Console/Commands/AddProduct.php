@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Repository\ProductRepositoryInterface;
 use Illuminate\Console\Command;
 use App\Models\Product;
 
@@ -12,11 +13,11 @@ class AddProduct extends Command
      *
      * @var string
      */
-    protected $signature = 'products:add 
-                            {name : The product name} 
-                            {description : The product description} 
-                            {price : The product price} 
-                            {image : The product image location} 
+    protected $signature = 'products:add
+                            {name : The product name}
+                            {description : The product description}
+                            {price : The product price}
+                            {image : The product image location}
                             {category* : The id of the categories which the product belongs to}';
 
     /**
@@ -25,15 +26,20 @@ class AddProduct extends Command
      * @var string
      */
     protected $description = 'Add a product to the database';
+    /**
+     * @var ProductRepositoryInterface
+     */
+    private $productRepository;
 
     /**
      * Create a new command instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ProductRepositoryInterface $productRepository)
     {
         parent::__construct();
+        $this->productRepository = $productRepository;
     }
 
     /**
@@ -43,16 +49,10 @@ class AddProduct extends Command
      */
     public function handle()
     {
-        $arguments = $this->arguments();
-        $product = new Product;
-        $product->name = $arguments['name'];
-        $product->description = $arguments['description'];
-        $product->price = $arguments['price'];
-        $product->image = $arguments['image'];
-        $product->save();
+        $product = $this->productRepository->create($this->arguments());
         //insert into the intermediate table ( product_category )
-        foreach ($arguments['category'] as $category) {
-            $product->categories()->attach(Category::$category);
+        foreach ($this->argument('category') as $category) {
+            $product->categories()->attach($category);
         }
     }
 }
