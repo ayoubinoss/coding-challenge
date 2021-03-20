@@ -8,7 +8,7 @@ php:
 
 service:
   - mysql
-  
+
 before_script:
   - composer self-update
   - composer install --no-interaction
@@ -20,7 +20,8 @@ before_script:
 notifications:
   email:
     on_success: never
-    
+
 script:
+  - php artisan migrate:fresh
   - vendor/bin/phpunit --coverage-text
   - vendor/bin/phpcs -n
