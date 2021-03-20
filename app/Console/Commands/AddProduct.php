@@ -34,7 +34,7 @@ class AddProduct extends Command
     /**
      * Create a new command instance.
      *
-     * @return void
+     * @param ProductRepositoryInterface $productRepository
      */
     public function __construct(ProductRepositoryInterface $productRepository)
     {

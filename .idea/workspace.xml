@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7853ef2-5e26-422a-a676-31a7e94b4ede" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/CategoryFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/ProductFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/AddProductTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/RemoveCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/RemoveCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/RemoveProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/RemoveProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/AddProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/AddProduct.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,11 +152,20 @@
       <recent name="C:\Users\myPc\Desktop\personal project\coding-challenges\my-coding-challenge\Repository\Eloquent" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHPUnit.AddProductTest.testAddProduct">
+    <configuration name="AddProductTest.testAddProduct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\AddProductTest" file="$PROJECT_DIR$/tests/Feature/AddProductTest.php" method="testAddProduct" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.AddProductTest.testAddProduct" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -167,7 +177,7 @@
       <updated>1615999193279</updated>
       <workItem from="1615999222260" duration="8996000" />
       <workItem from="1616072023546" duration="4687000" />
-      <workItem from="1616097561408" duration="4096000" />
+      <workItem from="1616097561408" duration="9643000" />
     </task>
     <servers />
   </component>
