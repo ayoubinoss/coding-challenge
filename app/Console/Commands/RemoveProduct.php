@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Repository\ProductRepositoryInterface;
 use Illuminate\Console\Command;
 use App\Models\Product;
 
@@ -12,7 +13,7 @@ class RemoveProduct extends Command
      *
      * @var string
      */
-    protected $signature = 'products:remove 
+    protected $signature = 'products:remove
                             {product : the product ID}';
 
     /**
@@ -23,13 +24,19 @@ class RemoveProduct extends Command
     protected $description = 'Remove a product from the database';
 
     /**
+     * @var ProductRepositoryInterface
+     */
+    private $productRepository;
+
+    /**
      * Create a new command instance.
      *
-     * @return void
+     * @param ProductRepositoryInterface $productRepository
      */
-    public function __construct()
+    public function __construct(ProductRepositoryInterface $productRepository)
     {
         parent::__construct();
+        $this->productRepository = $productRepository;
     }
 
     /**
@@ -39,6 +46,7 @@ class RemoveProduct extends Command
      */
     public function handle()
     {
-        Product::destroy($this->argument('product'));
+        //Product::destroy($this->argument('product'));
+        $this->productRepository->delete($this->argument('product'));
     }
 }

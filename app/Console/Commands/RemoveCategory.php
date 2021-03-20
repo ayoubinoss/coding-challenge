@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Repository\CategoryRepositoryInterface;
 use Illuminate\Console\Command;
 use App\Models\Category;
 
@@ -20,16 +21,22 @@ class RemoveCategory extends Command
      *
      * @var string
      */
+
     protected $description = 'Command description';
+    /**
+     * @var CategoryRepositoryInterface
+     */
+    private $categoryRepository;
 
     /**
      * Create a new command instance.
      *
-     * @return void
+     * @param CategoryRepositoryInterface $categoryRepository
      */
-    public function __construct()
+    public function __construct(CategoryRepositoryInterface $categoryRepository)
     {
         parent::__construct();
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -39,6 +46,7 @@ class RemoveCategory extends Command
      */
     public function handle()
     {
-        Category::destroy($this->argument('category'));
+        //Category::destroy($this->argument('category'));
+        $this->categoryRepository->delete($this->argument('category'));
     }
 }
